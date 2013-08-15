@@ -245,7 +245,7 @@
 			},
 
 			PropsValues: {
-				NTLM_AUTH_ENABLED: <%= PropsValues.NTLM_AUTH_ENABLED %>
+				NTLM_AUTH_ENABLED: <%= PrefsPropsUtil.getBoolean(themeDisplay.getCompanyId(), PropsKeys.NTLM_AUTH_ENABLED, PropsValues.NTLM_AUTH_ENABLED) %>
 			}
 		};
 
@@ -425,7 +425,7 @@ for (String analyticsType : analyticsTypes) {
 			%>
 
 			<c:if test="<%= Validator.isNotNull(baiduAnalyticsId) %>">
-				<script>
+				<script type="text/javascript">
 					var _hmt = _hmt || [];
 
 					var _baiduAnalyticsId = "<%= baiduAnalyticsId %>";
@@ -433,7 +433,7 @@ for (String analyticsType : analyticsTypes) {
 					(function() {
 						var hm = document.createElement("script");
 
-						hm.src = ("https:" == document.location.protocol) ? "https://" : "http://" + "hm.baidu.com/hm.js?" + _baiduAnalyticsId;
+						hm.src = ("https:" == document.location.protocol ? "https://" : "http://") + "hm.baidu.com/hm.js?" + _baiduAnalyticsId;
 
 						var s = document.getElementsByTagName("script")[0];
 
